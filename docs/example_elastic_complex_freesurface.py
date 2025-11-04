@@ -40,7 +40,7 @@ out = deepwave.elastic(
     grid_spacing=dx,
     dt=dt,
     source_amplitudes_y=(
-        deepwave.wavelets.ricker(freq, nt, dt, peak_time).reshape(1, 1, -1)
+        deepwave.wavelets.ricker(freq, nt, dt, peak_time).reshape(1, 1, -1).to(device)
     ),
     source_locations_y=torch.tensor([[[ny // 2, nx // 2]]]),
     pml_width=0,
